@@ -1,0 +1,33 @@
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:st="jelly:stapler">
+    <st:include class="com.sky.jenkins.MatrixBuilder" page="css.jelly"/>
+
+    <f:section title="Message Configuration">
+        <f:entry title="Chat Rooms">
+            <f:select field="roomsDropdown" multiple="multiple"/>
+        </f:entry>
+        <f:invisibleEntry>
+            <f:textbox field="rooms"/>
+        </f:invisibleEntry>
+
+        <f:entry title="Subject" field="subject">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="Message" field="message">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="Link Title" field="linkTitle">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="Link URL" field="linkUrl">
+            <f:textbox/>
+        </f:entry>
+    </f:section>
+    <st:once>
+
+        <script src="${rootURL}/plugin/matrix/js/jquery.js"/>
+        <script src="${rootURL}/plugin/matrix/js/chosen.jquery.min.js"/>
+        <script src="${rootURL}/plugin/matrix/js/chosen.order.jquery.min.js"/>
+        <script src="${rootURL}/plugin/matrix/js/multipleSelectionDropdown.js"/>
+    </st:once>
+    <!--<div>${instance.users}</div>-->
+</j:jelly>

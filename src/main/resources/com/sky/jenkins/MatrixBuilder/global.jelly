@@ -1,0 +1,31 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:f="/lib/form">
+    <st:include class="com.sky.jenkins.MatrixBuilder" page="css.jelly"/>
+    <f:section title="Matirx Configuration">
+	<f:entry title="Matirx URL">
+      <f:textbox field="matrixUrl" default="http://localhost:8008/_matrix/client/api/v1"/>
+    </f:entry>
+	<f:entry title="User">
+      <f:textbox field="matrixUser"/>
+    </f:entry>
+    <f:entry title="Password">
+      <f:password field="matrixPassword"/>
+    </f:entry>
+    <f:validateButton
+       title="Test Connection" progress="Testing ..."
+       method="testConnection" with="matrixUrl,matrixUser,matrixPassword" />
+    <f:entry title="Available Rooms (Alias)">
+         <f:textarea field="availableRooms" default=""/>
+    </f:entry>
+
+	<f:entry title="Home Server">
+        <f:textbox field="homeServer" default="" />
+    </f:entry>
+
+    </f:section>
+    <st:once>
+        <script src="${rootURL}/plugin/matrix/js/jquery.js"/>
+        <script src="${rootURL}/plugin/matrix/js/chosen.jquery.min.js"/>
+        <script src="${rootURL}/plugin/matrix/js/chosen.order.jquery.min.js"/>
+        <script src="${rootURL}/plugin/matrix/js/multipleSelectionDropdown.js"/>
+    </st:once>
+</j:jelly>
