@@ -1,6 +1,5 @@
 
-// $jq(document).ready(function() {
-setTimeout(function(){
+$jq(document).on('DOMNodeInserted', 'select[multiple]', function(){
     $jq('select[multiple]').each(function(){
         var dropdown = $jq(this);
 
@@ -39,5 +38,4 @@ setTimeout(function(){
             });
 
     });
-},1000);
-// });
+});

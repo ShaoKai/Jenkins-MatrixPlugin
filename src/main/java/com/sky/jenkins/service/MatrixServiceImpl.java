@@ -14,6 +14,8 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MatrixServiceImpl implements IMatrixService {
     private final static String PATH_LOGIN = "/login";

@@ -15,6 +15,7 @@ import hudson.tasks.Builder;
 import hudson.util.FormValidation;
 import hudson.util.ListBoxModel;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
@@ -214,6 +215,7 @@ public class MatrixBuilder extends Builder {
 
         public ListBoxModel doFillRoomsDropdownItems() {
             ListBoxModel items = new ListBoxModel();
+            if(StringUtils.isBlank(availableRooms)) return items;
             List<String> names = MatrixUtils.splitValueByLineBreak(availableRooms);
             for (String name : names) {
                 items.add(name.trim(), name.trim());
